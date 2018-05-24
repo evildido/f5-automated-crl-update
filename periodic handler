@@ -1,0 +1,2 @@
+# Run icall Script every days at 2 AM
+create sys icall handler periodic updateCRL-periodic first-occurrence 2018-01-01:02:00:00 interval 86400 script Update-CRL
