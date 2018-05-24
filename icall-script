@@ -1,0 +1,13 @@
+create script Update-CRL {
+    app-service none
+    definition {
+		set status [tmsh::show sys failover]
+		if { $status contains "active" } {
+			tmsh::run util bash /config/updateCRL.sh
+			puts "loading crl"
+			tmsh::log "CRL finished"
+		}
+    }
+    description none
+    events none
+}
